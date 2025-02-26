@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <style>
+        body {
+            background-color: rgb(80, 174, 174);
+            text-align: center;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        .todo-container {
+            width: 60%;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px gray;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: left;
+        }
+        .delete-btn, .done-btn {
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+        }
+        .delete-btn {
+            background: red;
+            color: white;
+        }
+        .done-btn {
+            background: green;
+            color: white;
+        }
+        .completed {
+            text-decoration: line-through;
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="greeting-message">Loading...</h1>
+
+    <div class="todo-container">
+        <h2>Start Your To-Do-List</h2>
+        <input type="text" id="taskInput" placeholder="Enter Task">
+        <button id="addTask">Add Task</button>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Task</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="tasklist"></tbody>
+        </table>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const userName = urlParams.get("name");
+            document.getElementById("greeting-message").textContent = userName 
+                ? `Hello, ${userName}! Welcome to the To-Do List!`
+                : "Welcome to the To-Do List!";
+
+            const taskInput = document.getElementById("taskInput");
+            const addTaskBtn = document.getElementById("addTask");
+            const taskList = document.getElementById("tasklist");
+
+            addTaskBtn.addEventListener("click", function () {
+                const taskText = taskInput.value.trim();
+                if (taskText === "") {
+                    alert("Please enter a task!");
+                    return;
+                }
+
+                // Create table row
+                const row = document.createElement("tr");
+
+                // Create task column
+                const taskCol = document.createElement("td");
+                taskCol.textContent = taskText;
+
+                // Create action column
+                const actionCol = document.createElement("td");
+
+                // Done Button
+                const doneBtn = document.createElement("button");
+                doneBtn.textContent = "Done";
+                doneBtn.classList.add("done-btn");
+                doneBtn.addEventListener("click", function () {
+                    taskCol.classList.toggle("completed");
+                });
+
+                // Delete Button
+                const deleteBtn = document.createElement("button");
+                deleteBtn.textContent = "Delete";
+                deleteBtn.classList.add("delete-btn");
+                deleteBtn.addEventListener("click", function () {
+                    row.remove();
+                });
+
+                actionCol.appendChild(doneBtn);
+                actionCol.appendChild(deleteBtn);
+                row.appendChild(taskCol);
+                row.appendChild(actionCol);
+                taskList.appendChild(row);
+
+                taskInput.value = ""; // Clear input
+            });
+        });
+    </script>
+</body>
+</html>

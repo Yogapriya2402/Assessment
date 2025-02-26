@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO-DO-LIST</title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+        body{
+            background-color: orange;
+        }
+        .user{
+            text-align: center;
+            margin-top: 150px;
+          
+        }
+        .user input {
+        width: 280px;   /* Medium width */
+        height: 40px;   /* Medium height */
+        font-size: 16px;
+        padding: 8px;
+        border: 2px solid #007bff;
+        border-radius: 8px;
+        outline: none;
+        transition: 0.3s;
+        }
+        .user button {
+        width: 150px;  
+        height: 40px;  
+        font-size: 16px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.3s;
+        }
+        .user button:hover {
+        background-color: #0056b3;
+        transform: scale(1.05);
+        }
+        .user button:active {
+        background-color: #004080;
+        transform: scale(0.98);
+        }
+      
+
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+    <div class="home">
+    <div class="header" id="header">
+        <h1>WELCOME TO To-DO-LIST</h1>
+    </div>
+    <div class="user" id="user">
+        <input type="text" id="username" placeholder="Enter your Name"><br><br>
+        <button id="click">Click Me</button>
+    </div>
+    </div>
+    <div class="last">
+    <div class="calculation">
+        <h2>Use Me to Calculation</h2>
+        <input type="number" placeholder="Enter Number">
+        <input type="number" placeholder="Enter Number">
+        <button id="calci">Add</button>
+        <button id="sub">Sub</button>
+        <button id="multi">Multi</button>
+        <button id="div">Div</button><br> <br>
+        <h3>Result: <span id="result">0</span> </h3>
+    </div>
+    
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

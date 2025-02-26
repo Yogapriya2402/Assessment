@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #8e1b6b;
+        }
+
+        .calculation {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            width: 300px;
+            text-align: center;
+        }
+
+        .calculation input {
+            width: 90%;
+            height: 35px;
+            font-size: 16px;
+            margin: 5px 0;
+            padding: 5px;
+            border: 2px solid #007bff;
+            border-radius: 5px;
+            outline: none;
+            text-align: center;
+        }
+
+        .calculation button {
+            width: 100px;
+            height: 40px;
+            font-size: 16px;
+            margin: 5px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .calculation button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        #result {
+            font-size: 22px;
+            font-weight: bold;
+            color: #28a745;
+            display: block;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculation">
+        <h2>Use Me to Calculate</h2>
+        <input type="number" id="num1" placeholder="Enter Number">
+        <input type="number" id="num2" placeholder="Enter Number">
+        <button id="calci">Add</button>
+        <button id="sub">Sub</button>
+        <button id="multi">Multi</button>
+        <button id="div">Div</button><br> <br>
+        <h3>Result: <span id="result">0</span></h3>
+    </div>
+
+    <script>
+        window.onload = function () {
+            document.getElementById("calci").addEventListener("click", function () {
+                calculate("add");
+            });
+            document.getElementById("sub").addEventListener("click", function () {
+                calculate("sub");
+            });
+            document.getElementById("multi").addEventListener("click", function () {
+                calculate("multi");
+            });
+            document.getElementById("div").addEventListener("click", function () {
+                calculate("div");
+            });
+
+            function calculate(operation) {
+                const num1 = parseFloat(document.getElementById("num1").value);
+                const num2 = parseFloat(document.getElementById("num2").value);
+                
+                if (isNaN(num1) || isNaN(num2)) {
+                    alert("Please Enter Valid Numbers!");
+                    return;
+                }
+
+                let result;
+                switch (operation) {
+                    case "add":
+                        result = num1 + num2;
+                        break;
+                    case "sub":
+                        result = num1 - num2;
+                        break;
+                    case "multi":
+                        result = num1 * num2;
+                        break;
+                    case "div":
+                        if (num2 === 0) {
+                            alert("Cannot divide by zero!");
+                            return;
+                        }
+                        result = num1 / num2;
+                        break;
+                }
+
+                document.getElementById("result").textContent = result;
+            }
+        };
+    </script>
+</body>
+</html>
