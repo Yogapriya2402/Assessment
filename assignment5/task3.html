@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>floating Action Button</title>
+    <style>
+        body{
+            background-color: aliceblue;
+        }
+        .Header {
+            margin-top: 20px;
+            border: 2px solid green;
+            background-color: rgb(44, 172, 30);
+            display: flex;
+            justify-content: flex-start; /* Aligns items to the left */
+            align-items: center;
+           padding-left: 20px;
+            text-align: center;
+            width: 100%;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            gap: 50px; /* Adds space between items */
+        }
+        .profile{
+            background-color: white;
+            border: 3px solid green;
+            align-items: center;
+            width: 250px;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+            flex-direction: column;
+            margin: 50px auto; /* Auto centers horizontally */
+            display: flex;
+            align-items: center;
+        }
+        .profile img{
+            height: 200px;
+            width: 150px;
+            padding-left: 30px;
+            display: block;
+        }
+        .profile h3{
+            padding-left: 40px;
+        }
+        .profile p{
+            padding-left: 20px;
+        }
+        .About{
+            border: 2px solid gainsboro ;
+            background-color: white;
+            height:150px ;
+            display: flex;
+            justify-content: flex-start; 
+            align-items: flex-start;
+            text-align: center;
+            width: 100%;
+            font-size: 20px;
+            flex-direction: column;
+            padding-left: 15px;
+
+        }
+        .button {
+            background-color: green;
+            color: green;
+            margin-top: 20px;
+            padding: 10px 30px;
+            font-size: 18px;
+            border: 2px solid green;
+            border-radius: 50px;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+            display: block; 
+            margin-left: auto; 
+            margin-right: auto;
+        }
+
+
+        .button:hover {
+            background-color: yellowgreen; 
+            transform: scale(1.05); 
+        }
+
+    </style>
+</head>
+<body>
+    <div class="Header">
+        <p>Home</p>
+        <p>About</p>
+        <p>Contact</p>
+    </div>
+    <div class="profile">
+        <img src="passport_priya.jpg" alt="photo">
+        <h3>Yogapriya</h3>
+        <p>Full Stack Developer Intern</p>
+    </div>
+    <div class="About">
+        <h3>About Section</h3>
+        <p>Learn More about in the About Section</p>
+    </div>
+    <div class="button">
+        <button>Go to Profile</button>
+    </div>
+</body>
+</html>

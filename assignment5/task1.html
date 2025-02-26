@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box-Model</title>
+    
+    <style>
+        body{
+            background-color:rgb(195, 192, 192);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .profile{
+          
+           width: 20%;
+           margin: 50px;
+           border: 3px solid green;
+           border-radius: 10px;
+           box-shadow: 5px 5px 10px rgba(0,0,0,0.1);
+           border-color: green;
+           background-color: white;
+           padding: 20px;
+           
+           display: flex; /* Enables flexbox */
+            flex-direction: column; /* Stack items vertically */
+            align-items: center; /* Center items horizontally */
+            justify-content: center; /* Center items vertically */
+            text-align: center; 
+        }
+       
+        .profile img{
+            height: 150px;
+            width: 150px;
+            padding-left: 30px;
+            display: block;
+        }
+        .profile h3{
+            padding-left: 40px;
+        }
+        .profile p{
+            padding-left: 50px;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="profile">
+        <img src="passport_priya.jpg" alt="photo">
+        <h3>Yogapriya</h3>
+        <p>Full Stack Developer Intern</p>
+    </div>
+</body>
+</html>
